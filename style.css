@@ -1,153 +1,17 @@
-:root {
-    --orange-50: #fff5ed;
-    --orange-100: #ffe9d4;
-    --orange-200: #ffcfa8;
-    --orange-300: #ffad70;
-    --orange-400: #ff7e37;
-    --orange-500: #ff661f;
-    --orange-600: #f04006;
-    --orange-700: #c72d07;
-    --orange-800: #9e250e;
-    --orange-900: #7f220f;
-    --orange-950: #450d05;
-
-    --broom-50: #fdffe7;
-    --broom-100: #f8ffc1;
-    --broom-200: #f6ff86;
-    --broom-300: #f8ff41;
-    --broom-400: #fffc0d;
-    --broom-500: #ffee00;
-    --broom-600: #d1b100;
-    --broom-700: #a68002;
-    --broom-800: #89630a;
-    --broom-900: #74510f;
-    --broom-950: #442b04;
-
-    --mine-shaft-50: #f6f6f6;
-    --mine-shaft-100: #e7e7e7;
-    --mine-shaft-200: #d1d1d1;
-    --mine-shaft-300: #b0b0b0;
-    --mine-shaft-400: #888888;
-    --mine-shaft-500: #6d6d6d;
-    --mine-shaft-600: #5d5d5d;
-    --mine-shaft-700: #4f4f4f;
-    --mine-shaft-800: #454545;
-    --mine-shaft-900: #3d3d3d;
-    --mine-shaft-950: #2e2e2e;
-
-    --white-50: #ffffff;
-    --white-100: #efefef;
-    --white-200: #dcdcdc;
-    --white-300: #bdbdbd;
-    --white-400: #989898;
-    --white-500: #7c7c7c;
-    --white-600: #656565;
-    --white-700: #525252;
-    --white-800: #464646;
-    --white-900: #3d3d3d;
-    --white-950: #292929;
-
-    --cod-gray-50: #f6f6f6;
-    --cod-gray-100: #e7e7e7;
-    --cod-gray-200: #d1d1d1;
-    --cod-gray-300: #b0b0b0;
-    --cod-gray-400: #888888;
-    --cod-gray-500: #6d6d6d;
-    --cod-gray-600: #5d5d5d;
-    --cod-gray-700: #4f4f4f;
-    --cod-gray-800: #454545;
-    --cod-gray-900: #3d3d3d;
-    --cod-gray-950: #101010;
-
-    --woodsmoke-50: #f6f6f6;
-    --woodsmoke-100: #e7e7e7;
-    --woodsmoke-200: #d1d1d1;
-    --woodsmoke-300: #b0b0b0;
-    --woodsmoke-400: #888888;
-    --woodsmoke-500: #6d6d6d;
-    --woodsmoke-600: #5d5d5d;
-    --woodsmoke-700: #4f4f4f;
-    --woodsmoke-800: #454545;
-    --woodsmoke-900: #3d3d3d;
-    --woodsmoke-950: #1d1d1d;
-
-    --shark-50: #f6f6f6;
-    --shark-100: #e7e7e7;
-    --shark-200: #d1d1d1;
-    --shark-300: #b0b0b0;
-    --shark-400: #888888;
-    --shark-500: #6d6d6d;
-    --shark-600: #5d5d5d;
-    --shark-700: #4f4f4f;
-    --shark-800: #454545;
-    --shark-900: #3d3d3d;
-    --shark-950: #262626;
-
-    --sun-50: #fffaeb;
-    --sun-100: #fef0c7;
-    --sun-200: #fcde8b;
-    --sun-300: #fbc84e;
-    --sun-400: #f9ae1c;
-    --sun-500: #f3900d;
-    --sun-600: #d76b08;
-    --sun-700: #b3490a;
-    --sun-800: #91380f;
-    --sun-900: #772f10;
-    --sun-950: #441604;
-
-    --nomad-50: #f7f6f5;
-    --nomad-100: #edebe7;
-    --nomad-200: #dbd6cd;
-    --nomad-300: #b8ae9d;
-    --nomad-400: #ab9e8c;
-    --nomad-500: #9a8875;
-    --nomad-600: #8d7969;
-    --nomad-700: #766558;
-    --nomad-800: #61534b;
-    --nomad-900: #50453e;
-    --nomad-950: #2a2320;
-
-    --hurricane-50: #f8f8f8;
-    --hurricane-100: #f1efef;
-    --hurricane-200: #e6e2e2;
-    --hurricane-300: #d4cdcd;
-    --hurricane-400: #b9b0b0;
-    --hurricane-500: #a09393;
-    --hurricane-600: #897c7c;
-    --hurricane-700: #706565;
-    --hurricane-800: #5f5555;
-    --hurricane-900: #524a4a;
-    --hurricane-950: #2a2525;
-
-    --fern-50: #eefbf2;
-    --fern-100: #d5f6de;
-    --fern-200: #afebc3;
-    --fern-300: #7adba0;
-    --fern-400: #3bb770;
-    --fern-500: #21a85f;
-    --fern-600: #14874b;
-    --fern-700: #106c3f;
-    --fern-800: #0f5633;
-    --fern-900: #0d472c;
-    --fern-950: #062819;
-
-    --carnation-50: #fef2f2;
-    --carnation-100: #fee2e3;
-    --carnation-200: #fecacc;
-    --carnation-300: #fba6a9;
-    --carnation-400: #f77276;
-    --carnation-500: #f05c61;
-    --carnation-600: #db272d;
-    --carnation-700: #b81d22;
-    --carnation-800: #981c20;
-    --carnation-900: #7e1e21;
-    --carnation-950: #450a0c;
-}
+@import url("./roboto.css");
+@import url("./root.css");
+@import url("./utility-classes.css");
 
 html,
 body {
     margin: 0;
     padding: 0;
+    font-family: "Roboto", system-ui;
+}
+
+body{
+    min-height: 100vh;
+    background: var();
 }
 
 * {
@@ -158,6 +22,8 @@ body {
     background-color: var(--woodsmoke-950);
     padding: 1.25rem 1rem;
     gap: 0.5rem;
+    border-bottom: 2px solid var(--cod-gray-600);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .markets-header-logo {
@@ -165,32 +31,72 @@ body {
     width: 5rem;
 }
 
-.flex {
-    display: flex;
+.markets-nav{
+    background: var(--cod-gray-950);
+    border-right: 2px solid var(--cod-gray-600);
+    padding-block: 3rem;
+    gap: 1rem;
 }
 
-.flex-row {
-    flex-direction: row;
+.markets-menu{
+    min-width: 16.25rem;
+    background-color: var(--woodsmoke-950);
 }
 
-.flex-col {
-    flex-direction: column;
+.markets-main{
+    height: 100%;
 }
 
-.justify-between{
-    justify-content: space-between;
-}
 
-.items-center{
-    align-items: center;
-}
-
-.button-signup{
+.button-signup {
     background-color: var(--sun-400);
-    color: var(--shark-500);
-    border: 1px solid var(--sun-400);
+    color: var(--shark-950);
+    border: 2px solid var(--sun-400);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    width: 6.75rem;
+    cursor: pointer;
 }
 
-.button-login{
+.button-signup:hover{
+    background-color: var(--sun-500);
+}
+
+.button-login {
+    background-color: var(--cod-gray-900);
+    color: var(--white-50);
+    border: 2px solid var(--white-50);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    width: 6.75rem;
+    cursor: pointer;
+}
+
+.button-login:hover{
+    background-color: var(--cod-gray-700);
+}
+
+.icon-container{
+    padding: 0.625rem 1.25rem;
+    gap: 0.5rem;
+    position: relative;
+    position: relative;
+}
+
+.icon-container .active-bar{
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    background-color: var(--sun-400);
+    left: 0;
+    top: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 
 }
+
+.icon{
+    height: 2.5rem;
+    width: 2.5rem;
+}
+

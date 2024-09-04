@@ -7,18 +7,78 @@
     <title>STX Markets</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js">
+    </script>
+
 </head>
 
-<body>
+<body class="flex flex-col">
     <header class="markets-header flex gap justify-between items-center">
-        <img src="/assets/images/stx-logo.png" alt="STX Logo" class="markets-header-logo"/>
+        <img src="/assets/images/stx-logo.png" alt="STX Logo" class="markets-header-logo" />
         <section>
-            <button class="button-signup">Signup</button>
-            <button class="button-login">Login</button>
+            <button class="button-signup text-base font-medium">Sign up</button>
+            <button class="button-login text-base font-medium">Login</button>
         </section>
     </header>
-    <section>
-    </section>
+    <main class="markets-main flex flex-1 h-full">
+        <nav class="flex flex-col markets-nav">
+            <div class="icon-container flex flex-col items-center">
+                <img class="icon" alt="Markets Logo" src="/assets/images/markets-icon.svg" />
+                <div class="icon-text text-center text-sun-400 text-xs">Markets</div>
+                <div class="active-bar"></div>
+            </div>
+            <div class="icon-container flex flex-col items-center">
+                <img class="icon" alt="Wager Logo" src="/assets/images/wager-icon.svg" />
+                <div class="icon-text text-center text-white-50 text-xs">Wager</div>
+                <!-- <div class="active-bar"></div> -->
+            </div>
+        </nav>
+        <section class="markets-menu py-2">
+            <div class="text-nomad-300 font-medium text-xs2 px-4 py-2">Sports</div>
+            <div class="flex justify-between items-center px-2 py-4 bg-shark-950">
+                <div class="flex gap-[5px] items-center text-white-50 ">
+                    <img src="/assets/images/mlb-icon.svg" alt="MLB Icon">
+                    <div class="text-base">MLB</div>
+                </div>
+                <div>
+                    <img src="./assets/images/chevron-down.svg" class="p-2" alt="Chevron down icon">
+                </div>
+            </div>
+            <div class="flex justify-between items-center px-2 py-4 bg-shark-950">
+                <div class="flex gap-[5px] items-center text-sun-400 ">
+                    <img src="/assets/images/nfl-icon.svg" alt="NFL Icon">
+                    <div class="text-base">NFL</div>
+                </div>
+                <div>
+                    <img src="./assets/images/chevron-down.svg" class="p-2 rotate-[180deg]" alt="Chevron down icon">
+                </div>
+            </div>
+            <div class="text-nomad-300 font-medium text-xs2 px-4 py-2">Games</div>
+            <div class="text-white-50 font-medium text-sm px-[2rem] py-[0.5rem]">Live</div>
+            <div class="text-sun-400 font-medium text-sm px-[2rem] py-[0.5rem]">Preseason</div>
+            <div class="text-white-50 font-medium text-sm px-[2rem] py-[0.5rem]">Tomorrow</div>
+            <div class="text-white-50 font-medium text-sm px-[2rem] py-[0.5rem]">Sat, 8/12</div>
+            <div class="text-nomad-300 font-medium text-xs2 px-4 py-2">2023 Season</div>
+            <div class="text-sun-400 font-medium text-sm px-[2rem] py-[0.5rem]">Division</div>
+            <div class="text-white-50 font-medium text-sm px-[2rem] py-[0.5rem]">League</div>
+            <div class="text-white-50 font-medium text-sm px-[2rem] py-[0.5rem]">World Series</div>
+            <div class="flex justify-between items-center px-2 py-4 bg-shark-950">
+                <div class="flex gap-[5px] items-center text-sun-400 ">
+                    <img src="/assets/images/nhl-icon.svg" alt="NHL Icon">
+                    <div class="text-base">NHL</div>
+                </div>
+                <div>
+                    <img src="./assets/images/chevron-down.svg" class="p-2" alt="Chevron up icon">
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
