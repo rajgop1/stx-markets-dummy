@@ -1,6 +1,6 @@
-@import url("./roboto.css");
-@import url("./root.css");
-@import url("./utility-classes.css");
+@import url("./stylesheets/roboto.css");
+@import url("./stylesheets/root.css");
+@import url("./stylesheets/utility-classes.css");
 
 html,
 body {
@@ -34,7 +34,6 @@ body{
 .markets-nav{
     background: var(--cod-gray-950);
     border-right: 2px solid var(--cod-gray-600);
-    padding-block: 3rem;
     gap: 1rem;
 }
 
@@ -83,13 +82,23 @@ body{
     position: relative;
 }
 
-.icon-container .active-bar{
+.icon-container .active-bar-lg{
     position: absolute;
     height: 100%;
     width: 3px;
     background-color: var(--sun-400);
     left: 0;
     top: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.icon-container .active-bar{
+    position: absolute;
+    background-color: var(--sun-400);
+    bottom: 0;
+    left:  0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 

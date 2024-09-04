@@ -20,14 +20,14 @@
     <script async defer src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
     <script async defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
-    <script async defer src="./chart.js">
+    <script async defer src="./scripts/chart.js">
     </script>
 
 
 </head>
 
 <body class="flex flex-col">
-    <header class="markets-header sticky top-0 z-[1] flex gap justify-between items-center">
+    <header class="markets-header flex gap justify-between items-center">
         <img src="/assets/images/stx-logo.png" alt="STX Logo" class="markets-header-logo" />
         <section>
             <button class="button-signup text-base font-medium">Sign up</button>
@@ -35,11 +35,13 @@
         </section>
     </header>
     <main class="markets-main flex flex-1 h-full">
-        <nav class="flex flex-col markets-nav gap-5">
+
+        <nav
+            class="fixed lg:relative bottom-0 w-full lg:w-fit flex flex-row lg:flex-col markets-nav justify-center lg:justify-start pt-[0.25rem] lg:py-[3rem]  z-[1] gap-5">
             <div class="icon-container flex flex-col items-center">
                 <img class="icon" alt="Markets Logo" src="/assets/images/markets-icon.svg" />
                 <div class="icon-text text-center text-sun-400 text-xs">Markets</div>
-                <div class="active-bar"></div>
+                <div class="active-bar h-[3px] w-[100%] lg:left-0 lg:top-0 lg:w-[3px] lg:h-[100%]"></div>
             </div>
             <div class="icon-container flex flex-col items-center">
                 <img class="icon" alt="Wager Logo" src="/assets/images/wager-icon.svg" />
@@ -96,7 +98,12 @@
                 </div>
             </div>
         </section> -->
-        <section class="flex flex-col px-[2rem] py-[1rem] gap-[1.75rem] w-full">
+        <section class="flex flex-col px-[1rem] lg:px-[2rem] py-[1rem] gap-[1rem] lg:gap-[1.75rem] w-full">
+            <div
+                class="lg:hidden border border-white-50 rounded-[0.5rem] px-[1rem] py-[0.625rem] flex justify-between items-center">
+                <div class="text-xs2 text-white-50">Download the STX Official App</div>
+                <a><img class="w-[83px]" src="./assets//images/app-store.png" alt="App store logo" /></a>
+            </div>
             <!-- Cards Carousel -->
             <div class="flex gap-[0.5rem]">
                 <div class="card p-[2rem] flex flex-col gap-[18px]">
@@ -112,10 +119,11 @@
             </div>
             <!-- Bottom Section -->
             <div class="flex items-center">
-                <div class="w-[2rem] h-[2rem]">
-                    <img src="/assets/images/market-list-open-button.png" alt="Breadcrumbs">
+                <div class="w-[2rem] h-[2rem] shrink-0">
+                    <img class="w-full h-full" src="/assets/images/market-list-open-button.png" alt="Breadcrumbs">
                 </div>
-                <div class="flex flex-row items-center text-[#949494] text-xs2 px-[1rem] py-[6px]">
+                <!-- breadcrumbs -->
+                <div class="flex flex-row flex-wrap items-center text-[#949494] text-xs2 px-[1rem] py-[6px]">
                     <span>Markets</span>
                     <img src="./assets/images/chevron-down.svg" class="p-2 rotate-[-90deg]" alt="Chevron right icon">
                     <span>NFL</span>
@@ -128,12 +136,12 @@
                 </div>
             </div>
             <!-- Grid 3 cols -->
-            <div class="grid grid-cols-3 gap-[1.75rem]">
+            <div class="flex flex-col lg:grid grid-cols-3 gap-[0.5rem] lg:gap-[1.75rem]">
 
                 <div class="p-[1rem] bg-shark-950 border border-white-700 flex flex-col gap-[12px] col-span-2">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between lg:items-center">
                         <div class="text-white-50 text-lg font-medium">NFL - AFC East Div - NYJ</div>
-                        <div class="flex flex-row items-center gap-[0.625rem]">
+                        <div class="flex flex-row items-baseline md:items-center gap-[0.625rem]">
                             <button class="rounded-[1.5rem] bg-white-700 text-white-50 px-[1rem] py-[2px]">Open</button>
                             <img src="/assets/images/info.png" alt="Info Icon" class="w-[1.25rem] h-[1.25rem]" />
                         </div>
@@ -160,70 +168,72 @@
                         </div>
                     </div>
                 </div>
-                <!-- chart -->
-                <div>
-                    <canvas id="myChart"></canvas>
-                </div>
-                <!-- calculator -->
-                <div class="flex justify-center w-full px-[2.21875rem] pt-[1rem] ">
-                    <div class="relative w-full">
-                        <div
-                            class="flex rounded-[0.625rem] p-[0.375rem] w-[90%] absolute top-0 left-[50%] translate-x-[-50%]  translate-y-[-50%] bg-[#3F4041]">
+                <div class="flex flex-col md:flex-row lg:col-span-2 mt-[1rem] lg:mt-0">
+                    <!-- chart -->
+                    <div class="">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <!-- calculator -->
+                    <div class="flex justify-center w-full px-[2.21875rem] pt-[1rem] ">
+                        <div class="relative w-full">
                             <div
-                                class="bg-fern-400 text-center py-[5px] text-white-50 rounded-[0.5rem] text-base font-medium flex-1">
-                                Buy</div>
-                            <div
-                                class="text-white-50 text-center py-[5px] rounded-[0.5rem] text-base font-medium flex-1">
-                                Sell</div>
-                        </div>
-                        <div
-                            class="border pt-[2rem] pb-[1.5rem] px-[2rem] flex flex-col gap-[2rem] items-center rounded-[0.625rem] border-fern-400">
-                            <div class=" flex flex-col gap-[0.625rem] w-full items-center">
-                                <div class="text-[#949494]">Order Type</div>
-                                <div class="flex gap-[0.375rem]">
-                                    <div
-                                        class="w-[68px] py-[0.25rem] rounded-[0.375rem] border border-white-50 text-white-50 flex justify-center items-center text-center text-xs2">
-                                        Market</div>
-                                    <div
-                                        class="w-[68px] py-[0.25rem] rounded-[0.375rem] border border-[#9A9A9A] text-[#9A9A9A] flex justify-center items-center text-center text-xs2">
-                                        Limit</div>
-                                </div>
-                                <div class="text-[#949494]">Quantity</div>
-                                <div
-                                    class="flex justify-between w-full border rounded-[0.375rem] p-[0.5rem] border-[#9A9A9A]">
-                                    <button><img src="/assets/images/arrow.svg" /></button>
-                                    <div class="text-xl text-white-50">1</div>
-                                    <button><img class="rotate-[180deg]" src="/assets/images/arrow.svg" /></button>
-                                </div>
+                                class="flex rounded-[0.625rem] p-[0.375rem] w-[90%] absolute top-0 left-[50%] translate-x-[-50%]  translate-y-[-50%] bg-[#3F4041]">
+                                <button id="calc-buy"
+                                    class="bg-fern-400 text-center py-[5px] text-white-50 rounded-[0.5rem] text-base font-medium flex-1">
+                                    Buy</button>
+                                <button id="calc-sell"
+                                    class="text-white-50 text-center py-[5px] rounded-[0.5rem] text-base font-medium flex-1">
+                                    Sell</button>
                             </div>
-                            <div class="flex flex-col gap-[0.5rem] w-full">
-                                <div class="grid grid-cols-3 gap-[1rem]">
-                                    <div class="flex flex-col items-center gap-[4px]">
-                                        <div class="text-[#949494] text-md">Risking</div>
-                                        <div class="text-white-50 text-base">$49.00</div>
+                            <div
+                                class="border pt-[2rem] pb-[1.5rem] px-[2rem] flex flex-col gap-[2rem] items-center rounded-[0.625rem] border-fern-400">
+                                <div class=" flex flex-col gap-[0.625rem] w-full items-center">
+                                    <div class="text-[#949494]">Order Type</div>
+                                    <div class="flex gap-[0.375rem]">
+                                        <div
+                                            class="w-[68px] py-[0.25rem] rounded-[0.375rem] border border-white-50 text-white-50 flex justify-center items-center text-center text-xs2">
+                                            Market</div>
+                                        <div
+                                            class="w-[68px] py-[0.25rem] rounded-[0.375rem] border border-[#9A9A9A] text-[#9A9A9A] flex justify-center items-center text-center text-xs2">
+                                            Limit</div>
                                     </div>
-                                    <div class="flex flex-col items-center gap-[4px]">
-                                        <div class="text-[#949494] text-md">To Win</div>
-                                        <div class="text-white-50 text-base">$51.00</div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-[4px]">
-                                        <div class="text-[#949494] text-md">Est. Fill</div>
-                                        <div class="text-white-50 text-base">$49.00</div>
+                                    <div class="text-[#949494]">Quantity</div>
+                                    <div
+                                        class="flex justify-between w-full border rounded-[0.375rem] p-[0.5rem] border-[#9A9A9A]">
+                                        <button><img src="/assets/images/arrow.svg" /></button>
+                                        <div class="text-xl text-white-50">1</div>
+                                        <button><img class="rotate-[180deg]" src="/assets/images/arrow.svg" /></button>
                                     </div>
                                 </div>
-                                <div class="flex flex-col gap-[1rem] w-full">
-                                    <button
-                                        class="flex items-center justify-center gap-[5px] bg-fern-400 w-full rounded-[0.5rem] font-semibold text-lg text-shark-950 py-[0.5rem]">
-                                        <img src="/assets/images/nyj-icon.svg" alt="NYJ Icon" />
-                                        Buy NYJ
-                                    </button>
-                                    <button class="text-white-50 text-xs2">Reset</button>
+                                <div class="flex flex-col gap-[0.5rem] w-full">
+                                    <div class="grid grid-cols-3 gap-[1rem]">
+                                        <div class="flex flex-col items-center gap-[4px]">
+                                            <div class="text-[#949494] text-md">Risking</div>
+                                            <div class="text-white-50 text-base">$49.00</div>
+                                        </div>
+                                        <div class="flex flex-col items-center gap-[4px]">
+                                            <div class="text-[#949494] text-md">To Win</div>
+                                            <div class="text-white-50 text-base">$51.00</div>
+                                        </div>
+                                        <div class="flex flex-col items-center gap-[4px]">
+                                            <div class="text-[#949494] text-md">Est. Fill</div>
+                                            <div class="text-white-50 text-base">$49.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-[1rem] w-full">
+                                        <button
+                                            class="flex items-center justify-center gap-[5px] bg-fern-400 w-full rounded-[0.5rem] font-semibold text-lg text-shark-950 py-[0.5rem]">
+                                            <img src="/assets/images/nyj-icon.svg" alt="NYJ Icon" />
+                                            Buy NYJ
+                                        </button>
+                                        <button class="text-white-50 text-xs2">Reset</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--  -->
+                <!-- position details -->
                 <div class="p-[1rem] bg-shark-950 border border-white-700 flex flex-col gap-[1rem]">
                     <div class="text-md text-white-50">My Position Details</div>
                     <div class="flex items-center justify-between border border-white-700 rounded-[0.5rem] p-[1rem]">
@@ -231,12 +241,14 @@
                             <span class="text-fern-400">BOUGHT</span>
                             <span class="text-white-50">10</span>
                         </div>
-                        <button class="flex justify-center items-center text-xs2 gap-[5px] bg-carnation-500 rounded-[5px] py-[4px] px-[0.5rem]">
+                        <button
+                            class="flex justify-center items-center text-xs2 gap-[5px] bg-carnation-500 rounded-[5px] py-[4px] px-[0.5rem]">
                             <img src="/assets/images/nyj-icon.svg" alt="NYJ Icon" class="rotate-[180deg]" />
                             Close
                         </button>
                     </div>
-                    <div class="flex items-center justify-between border border-white-700 rounded-[0.5rem] p-[1rem] grid grid-cols-2 gap-[1rem]">
+                    <div
+                        class="flex items-center justify-between border border-white-700 rounded-[0.5rem] p-[1rem] grid grid-cols-2 gap-[1rem]">
                         <div class="flex flex-col">
                             <span class="text-base text-[#949494]">Risk</span>
                             <span class="text-base text-white-50">$350.00</span>
@@ -254,7 +266,8 @@
                             <span class="text-base text-white-50">$350.00</span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between border border-white-700 rounded-[0.5rem] p-[1rem] grid grid-cols-2 gap-[1rem]">
+                    <div
+                        class="flex items-center justify-between border border-white-700 rounded-[0.5rem] p-[1rem] grid grid-cols-2 gap-[1rem]">
                         <div class="flex flex-col">
                             <span class="text-base text-[#949494]">Contracts Traded</span>
                             <span class="text-base text-white-50">$350.00</span>
