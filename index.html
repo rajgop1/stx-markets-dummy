@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STX Markets</title>
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/stx-markets-dummy/assets/images/favicon.ico">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +16,17 @@
     <script src="./tailwind.config.js">
     </script>
 
-    <script async defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script async defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script async defer src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
-    <script async defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script async defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script> -->
 
-    <script async defer src="./scripts/chart.js">
-    </script>
+    <!-- <script async defer src="./scripts/chart.js">
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <!-- Load d3.js -->
+    <!-- <script src="https://d3js.org/d3.v6.js"></script>
+    <script async defer src="./scripts/charts.d3.js"></script> -->
 
 </head>
 
@@ -121,7 +125,8 @@
             <div class="flex flex-col justify-between items-center md:flex-row">
                 <div class="flex items-center">
                     <div class="w-[2rem] h-[2rem] shrink-0">
-                        <img class="w-full h-full" src="/stx-markets-dummy/assets/images/market-list-open-button.png" alt="Breadcrumbs">
+                        <img class="w-full h-full" src="/stx-markets-dummy/assets/images/market-list-open-button.png"
+                            alt="Breadcrumbs">
                     </div>
                     <!-- breadcrumbs -->
                     <div class="flex flex-row flex-wrap items-center text-[#949494] text-xs2 px-[1rem] py-[6px]">
@@ -140,7 +145,8 @@
                         <span>NFL - AFC East Div - NYJ</span>
                     </div>
                 </div>
-                <div class="w-full md:w-fit mt-[1rem] md:mt-0 select border border-[#949494] rounded-[0.5rem] p-[0.5rem] flex items-center">
+                <div
+                    class="w-full md:w-fit mt-[1rem] md:mt-0 select border border-[#949494] rounded-[0.5rem] p-[0.5rem] flex items-center">
                     <div class="shrink-0 text-[#949494] text-base">Odds Display:</div>
                     <div class="w-full">
                         <select class="w-full bg-transparent text-white-50 outline-none">
@@ -163,7 +169,8 @@
                         <div class="text-white-50 text-lg font-medium">NFL - AFC East Div - NYJ</div>
                         <div class="flex flex-row items-baseline md:items-center gap-[0.625rem]">
                             <button class="rounded-[1.5rem] bg-white-700 text-white-50 px-[1rem] py-[2px]">Open</button>
-                            <img src="/stx-markets-dummy/assets/images/info.png" alt="Info Icon" class="w-[1.25rem] h-[1.25rem]" />
+                            <img src="/stx-markets-dummy/assets/images/info.png" alt="Info Icon"
+                                class="w-[1.25rem] h-[1.25rem]" />
                         </div>
                     </div>
                     <div class="flex flex-col gap-[8px]">
@@ -208,8 +215,225 @@
 
                                     <div x-show="openTab === 1" class="transition-all duration-300  ">
                                         <div class="flex flex-col gap-2">
-                                            <div></div>
-                                            <canvas id="myChart"></canvas>
+                                            <div class="chart flex flex-col gap-[1rem]">
+                                                <div class="legends-container flex items-center gap-[0.5rem]">
+                                                    <div class="legend-container flex items-center gap-[0.35rem]">
+                                                        <div
+                                                            class="legend-icon h-[0.5rem] w-[0.5rem] bg-white-50 rounded-[3px]">
+                                                        </div>
+                                                        <div class="text-white-50 text-xs2">
+                                                            Quantity
+                                                        </div>
+                                                    </div>
+                                                    <div class="legend-container flex items-center gap-[0.35rem]">
+                                                        <div
+                                                            class="legend-icon h-[0.5rem] w-[0.5rem] bg-carnation-500 rounded-[3px]">
+                                                        </div>
+                                                        <div class="text-carnation-500 text-xs2">
+                                                            Offers(Odds)
+                                                        </div>
+                                                    </div>
+                                                    <div class="legend-container flex items-center gap-[0.35rem]">
+                                                        <div
+                                                            class="legend-icon h-[0.5rem] w-[0.5rem] bg-[#FBAE1C] rounded-[3px]">
+                                                        </div>
+                                                        <div class="text-[#FBAE1C] text-xs2">
+                                                            Mkt. Price
+                                                        </div>
+                                                    </div>
+                                                    <div class="legend-container flex items-center gap-[0.35rem]">
+                                                        <div
+                                                            class="legend-icon h-[0.5rem] w-[0.5rem] bg-fern-400 rounded-[3px]">
+                                                        </div>
+                                                        <div class="text-fern-400 text-xs2">
+                                                            Bids
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-area">
+                                                    <div class="bar-chart flex flex-col gap-[1px]">
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[0.25rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-full">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                300
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                52.00 (-108)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[55%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                170
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                51.00 (-104)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[50%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                150
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                51.00 (-100)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[33%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                100
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                51.00 (-104)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[15%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                50
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                50.00 (EVEN)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[10%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                10
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                50.00 (EVEN)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-carnation-500 opacity-[0.5] w-[10%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                10
+                                                            </div>
+                                                            <div class="bar-growth text-carnation-500 text-base text-right ">
+                                                                50.00 (EVEN)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="center py-[1rem] flex justify-end px-[3rem]">
+                                                    <div class="text-[#FBAE1C] text-base">49.50</div>
+                                                </div>
+                                                <div class="chart-area">
+                                                    <div class="bar-chart flex flex-col gap-[1px]">
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[15%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                20
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                49.00 (+104)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[20%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                30
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                49.00 (+104)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[45%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                180
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                48.00 (+108)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[80%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                200
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                47.00 (+113)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[80%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                200
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                47.00 (+113)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[85%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                250
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                47.00 (+113)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                        <div class="grid grid-cols-[4fr_1fr_3fr] lg:grid-cols-[4fr_1fr_2fr] gap-x-[1rem]">
+                                                            <div class="bar h-[1.625rem] bg-fern-400 opacity-[0.5] w-[100%]">
+                                                            </div>
+                                                            <div class="bar-value text-white-50 text-base text-right ">
+                                                                300
+                                                            </div>
+                                                            <div class="bar-growth text-fern-400 text-base text-right ">
+                                                                47.00 (+113)
+                                                            </div>
+                                                        </div>
+                                                        <div class="horizontal-grid-line bg-[#3F4041] h-[1px] w-full">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <canvas id="myChart"></canvas> -->
+                                            <!-- Create a div where the graph will take place -->
+                                            <!-- <div id="my_dataviz"></div> -->
+
                                         </div>
                                     </div>
 
@@ -251,7 +475,8 @@
                                         class="flex justify-between w-full border rounded-[0.375rem] p-[0.5rem] border-[#9A9A9A]">
                                         <button><img src="/stx-markets-dummy/assets/images/arrow.svg" /></button>
                                         <div class="text-xl text-white-50">1</div>
-                                        <button><img class="rotate-[180deg]" src="/stx-markets-dummy/assets/images/arrow.svg" /></button>
+                                        <button><img class="rotate-[180deg]"
+                                                src="/stx-markets-dummy/assets/images/arrow.svg" /></button>
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-[0.5rem] w-full">
